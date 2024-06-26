@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Customer {
-
     @Id
     private int id;
     private String name;
