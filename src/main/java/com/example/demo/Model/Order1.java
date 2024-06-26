@@ -1,6 +1,8 @@
 package com.example.demo.Model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +15,7 @@ import java.util.Date;
 public class Order1 implements Comparable<Order1> {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderID;
     private String orderName;
     private int customerID;
