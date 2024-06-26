@@ -14,6 +14,7 @@ public class Order1 implements Comparable<Order1> {
 
     @Id
     private int orderID;
+    private String orderName;
     private int customerID;
     private Date orderDate;
 
