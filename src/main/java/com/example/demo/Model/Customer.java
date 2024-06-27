@@ -1,7 +1,7 @@
 package com.example.demo.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +10,12 @@ import lombok.Setter;
 @Entity
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     private int id;
     private String name;
     private String email;
+
+//    @ManyToOne
+//    private Order1 order;
 }
