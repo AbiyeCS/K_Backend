@@ -19,4 +19,4 @@ public class Role {
 
     @NotNull
     private String name;
-}
+} // In future cases Role should not a class instead it should be an ENUM that stores the different possible roles, would be so much easier
