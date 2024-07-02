@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 import com.example.demo.Exception.FailedToGenerateTokenException;
 import com.example.demo.Exception.FailedToLoginException;
+import com.example.demo.Exception.TokenExpiredException;
 import com.example.demo.Model.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,6 +60,14 @@ public class AuthService {
             return generateToken(user);
         } else {
             throw new FailedToLoginException("Invalid username or password");
+        }
+    }
+
+    public long getRoleIDfromToken(Token token){
+        if (token.getExpiry().after(new Date())) {
+            return token.getUser().getRole().getRoleID();
+        } else {
+            throw new TokenExpiredException("Token is expired");
         }
     }
 }
